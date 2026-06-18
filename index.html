@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İslami Dijital Karargah</title>
+    <!-- Font Awesome (ikonlar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', system-ui, sans-serif;
+            background: #0b1a15;
+            color: #e0d6c8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: radial-gradient(circle at 20% 30%, #1a3a2e 0%, #0b1a15 90%);
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(18, 34, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid #b8954a;
+            border-radius: 36px;
+            padding: 40px 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px #b8954a33;
+        }
+
+        /* Başlık */
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #b8954a55;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            letter-spacing: 2px;
+            color: #f0dba7;
+            text-shadow: 0 2px 10px #b8954a33;
+        }
+
+        .header h1 i {
+            color: #b8954a;
+            margin-right: 10px;
+        }
+
+        .header .selam {
+            font-size: 1.5rem;
+            color: #cfc1a8;
+            margin-top: 6px;
+        }
+
+        .header .altin {
+            color: #d4af37;
+        }
+
+        /* Kartlar */
+        .kart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .kart {
+            background: #12221c;
+            border: 1px solid #2d4b3e;
+            border-radius: 24px;
+            padding: 25px 20px;
+            transition: 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .kart:hover {
+            border-color: #b8954a;
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .kart i {
+            font-size: 2.8rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .kart h2 {
+            font-size: 1.6rem;
+            color: #f0dba7;
+            margin-bottom: 10px;
+        }
+
+        .kart p {
+            font-size: 1rem;
+            color: #b8ae9a;
+            line-height: 1.6;
+        }
+
+        /* Esma bölümü */
+        .esma-box {
+            background: #0f1d17;
+            border-left: 6px solid #d4af37;
+            padding: 20px 25px;
+            border-radius: 18px;
+            margin: 30px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .esma-box .esma-metin {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f0dba7;
+        }
+
+        .esma-box .esma-anlam {
+            font-size: 1.1rem;
+            color: #b8ae9a;
+            background: #1a2f26;
+            padding: 6px 18px;
+            border-radius: 50px;
+        }
+
+        .buton {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #d4af37;
+            color: #0b1a15;
+            font-weight: 700;
+            border-radius: 60px;
+            border: 2px solid #d4af37;
+            text-decoration: none;
+            transition: 0.25s ease;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
+        .buton:hover {
+            background: transparent;
+            color: #d4af37;
+        }
+
+        .buton-ikincil {
+            background: transparent;
+            color: #d4af37;
+            border-color: #b8954a;
+        }
+
+        .buton-ikincil:hover {
+            background: #d4af37;
+            color: #0b1a15;
+        }
+
+        .flex-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #2d4b3e;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7e8d7c;
+        }
+
+        .footer i {
+            color: #d4af37;
+        }
+
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        /* Mobil */
+        @media (max-width: 700px) {
+            .container {
+                padding: 22px 14px;
+            }
+            .header h1 {
+                font-size: 1.9rem;
+            }
+            .esma-box {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            .esma-box .esma-metin {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <h1><i class="fas fa-shield-halved"></i> İslami <span class="altin">Dijital</span> Karargah</h1>
+            <div class="selam">🌙 Selamün Aleyküm</div>
+            <p style="color: #b8ae9a; margin-top: 6px; font-size: 1.1rem;">
+                Hz. Ömer’in adaleti · Metehan’ın stratejisi · Kur’an’ın ışığı
+            </p>
+        </div>
+
+        <!-- ===== GÜNÜN ESMA'SI ===== -->
+        <div class="esma-box" id="esmaBox">
+            <div>
+                <div style="font-size: 0.85rem; color: #7e8d7c;">BUGÜN ZİKREDİLECEK ESMA</div>
+                <div class="esma-metin" id="esmaIsim">El-Müheymin</div>
+            </div>
+            <div class="esma-anlam" id="esmaAnlam">Gözetip Koruyan</div>
+        </div>
+
+        <!-- ===== KARTLAR ===== -->
+        <div class="kart-grid">
+            <div class="kart">
+                <i class="fas fa-arrow-rotate-right"></i>
+                <h2>Zikirmatik</h2>
+                <p>99 Esma ile dijital tesbih. Her zikirde kalbini arındır.</p>
+                <div style="margin-top: 14px;">
+                    <button class="buton" id="zikirBtn" style="font-size:0.9rem; padding:10px 24px;">
+                        <i class="fas fa-play"></i> Zikret
+                    </button>
+                </div>
+            </div>
+
+            <div class="kart">
+                <i class="fas fa-book-quran"></i>
+                <h2>Esma-ül Hüsna</h2>
+                <p>Allah’ın 99 ismi ve anlamları. Her isim bir kapıdır.</p>
+                <div style="margin-top: 14px;">
+                    <button class="buton buton-ikincil" id="esmaBtn" style="font-size:0.9rem; padding:10px 24px;">
+                        <i class="fas fa-list"></i> 99 İsmi Göster
+                    </button>
+                </div>
+            </div>
+
+            <div class="kart">
+                <i class="fas fa-scale-balanced"></i>
+                <h2>Nefis Muhasebesi</h2>
+                <p>Hz. Ömer’in meşhur uygulaması. Günlük hesap ver.</p>
+                <div style="margin-top: 14px;">
+                    <button class="buton buton-ikincil" id="muhasebeBtn" style="font-size:0.9rem; padding:10px 24px;">
+                        <i class="fas fa-pen"></i> Defteri Aç
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ALT KISIM / DURUŞ ===== -->
+        <div style="margin: 35px 0 5px; background: #0f1d17; border-radius: 24px; padding: 20px; text-align: center; border: 1px solid #1a352a;">
+            <p style="font-size: 1.1rem; color: #d4cfc0;">
+                <i class="fas fa-quote-left" style="color: #b8954a;"></i>
+                Dijital dünya, Müslüman’ın yeni bozkırıdır.
+                <i class="fas fa-quote-right" style="color: #b8954a;"></i>
+            </p>
+            <p style="color: #7e8d7c; margin-top: 8px; font-size: 0.9rem;">
+                Müslüman Etik Hacker · Açık Kaynak · Manevi Duruş
+            </p>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer">
+            <i class="fas fa-shield-halved"></i>  İslami Dijital Karargah v2.0 &nbsp;·&nbsp;
+            <i class="fas fa-code"></i> Kod: Hz. Ömer & Metehan ruhuyla
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ===== JAVASCRIPT (PROFESYONEL DİNAMİK İÇERİK) ===== -->
+    <script>
+        (function() {
+            "use strict";
+
+            // ---------- 99 ESMA LİSTESİ (Kısa versiyon, 10 adet) ----------
+            const esmaList = [
+                { isim: "Er-Rahman", anlam: "Esirgeyen" },
+                { isim: "Er-Rahim", anlam: "Bağışlayan" },
+                { isim: "El-Melik", anlam: "Mülkün Sahibi" },
+                { isim: "El-Kuddüs", anlam: "Kutsal" },
+                { isim: "Es-Selam", anlam: "Esenlik Veren" },
+                { isim: "El-Mümin", anlam: "Güven Veren" },
+                { isim: "El-Müheymin", anlam: "Gözetip Koruyan" },
+                { isim: "El-Aziz", anlam: "Güçlü ve Üstün" },
+                { isim: "El-Cebbar", anlam: "Dilediğini Yaptıran" },
+                { isim: "El-Mütekebbir", anlam: "Büyüklük Sahibi" }
+            ];
+
+            // DOM elemanları
+            const esmaIsimEl = document.getElementById('esmaIsim');
+            const esmaAnlamEl = document.getElementById('esmaAnlam');
+            const zikirBtn = document.getElementById('zikirBtn');
+            const esmaBtn = document.getElementById('esmaBtn');
+            const muhasebeBtn = document.getElementById('muhasebeBtn');
+
+            // ---------- 1. Rastgele Esma Göster ----------
+            function gosterRastgeleEsma() {
+                const rastgele = esmaList[Math.floor(Math.random() * esmaList.length)];
+                esmaIsimEl.textContent = rastgele.isim;
+                esmaAnlamEl.textContent = rastgele.anlam;
+            }
+
+            // ---------- 2. Zikirmatik (Alert ile interaktif) ----------
+            function zikirBaslat() {
+                const rastgele = esmaList[Math.floor(Math.random() * esmaList.length)];
+                let sayac = 0;
+                const hedef = 10; // 10 kere zikret (gösteri amaçlı)
+
+                // Basit bir simülasyon: her "Tamam" dediğinde bir sonraki zikri göster
+                function zikret(adim) {
+                    if (adim > hedef) {
+                        alert(`✅ Zikir tamamlandı! ${hedef} kere "${rastgele.isim}" zikrettin. Subhanallah!`);
+                        return;
+                    }
+                    // Kullanıcıya göster
+                    const devam = confirm(`${adim}/${hedef} - ${rastgele.isim} (${rastgele.anlam})\n\nDevam etmek için "Tamam"a bas.`);
+                    if (devam) {
+                        zikret(adim + 1);
+                    } else {
+                        alert('⏹️ Zikir yarıda kesildi. Allaha emanet ol.');
+                    }
+                }
+
+                alert(`📿 Zikirmatik başlıyor:\n"${rastgele.isim}" (${rastgele.anlam})\n\nToplam ${hedef} kere zikredeceksin.`);
+                zikret(1);
+            }
+
+            // ---------- 3. Esma Listesini Göster (prompt ile) ----------
+            function esmaListesiniGoster() {
+                let liste = "===== 99 ESMA (ilk 10) =====\n\n";
+                esmaList.forEach((e, i) => {
+                    liste += `${i+1}. ${e.isim} — ${e.anlam}\n`;
+                });
+                liste += `\n🌙 Tam liste için GitHub'daki projeyi geliştir.`;
+                alert(liste);
+            }
+
+            // ---------- 4. Nefis Muhasebesi (Basit günlük) ----------
+            function muhasebeDefteri() {
+                const bugun = new Date().toLocaleDateString('tr-TR');
+                const iyilik = prompt(`📖 Nefis Muhasebesi — ${bugun}\n\nBugün kaç tane iyilik yaptığını düşünüyorsun? (Sayı girin)`, '3');
+                const gunah = prompt('Peki, nefsine uyup kaç kez hata yaptığını düşünüyorsun? (Sayı girin)', '1');
+
+                if (iyilik === null || gunah === null) {
+                    alert('❌ Muhasebe iptal edildi.');
+                    return;
+                }
+
+                const i = parseInt(iyilik) || 0;
+                const g = parseInt(gunah) || 0;
+                const sonuc = i - g;
+
+                let mesaj = `📋 ${bugun} özeti:\n✅ İyilik: ${i}\n❌ Hata: ${g}\n\n`;
+                if (sonuc > 0) {
+                    mesaj += `🌟 Bugün kazandın! (${sonuc} net iyilik). Hz. Ömer’in yolunda ilerle.`;
+                } else if (sonuc === 0) {
+                    mesaj += `⚖️ Bugün dengedesin. Yarını daha iyi yapmaya niyet et.`;
+                } else {
+                    mesaj += `⚠️ Bugün eksiğin var. Tövbe et ve yeniden başla.`;
+                }
+                alert(mesaj);
+            }
+
+            // ---------- OLAY DİNLEYİCİLERİ ----------
+            zikirBtn.addEventListener('click', zikirBaslat);
+            esmaBtn.addEventListener('click', esmaListesiniGoster);
+            muhasebeBtn.addEventListener('click', muhasebeDefteri);
+
+            // Sayfa yüklenirken rastgele bir Esma göster
+            window.addEventListener('DOMContentLoaded', gosterRastgeleEsma);
+
+        })();
+    </script>
+</body>
+</html>
